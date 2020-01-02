@@ -29,10 +29,10 @@ $ sudo python MacUninstaller.py -a APPLICATION NAME> -m <MODE>
 ```
 Flags:
 |short|long|desctiption
-|---|---|---|
+|------|-----------------|-----------------------------------------------------------------------------|
 | `-h` | `--help` | Show this help message|
-| `-a` | `--application` | Name of application (as it appears in "/Applications/", without the ".app:")
-| `-m` | `--mode` | Intensity of removal (1-3)
+| `-a` | `--application` | Name of application (as it appears in "/Applications/", without the ".app:")|
+| `-m` | `--mode` | Intensity of removal (1-3)|
 
 <br>
 
