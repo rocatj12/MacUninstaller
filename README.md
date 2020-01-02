@@ -1,6 +1,7 @@
 # MacUninstaller
 ___
-##### Completely remove applications and the files they leave behind
+#### Completely remove applications and the files they leave behind
+##### Built on Python 2.7 to take advantage of the built in Python language in MacOS
 
 <br>
 
@@ -12,7 +13,7 @@ ________________________
 You will be faced with something that looks a little like this:
 
 ``` 
-$
+user@Mac~ $
 ```
 
 <br>
@@ -20,47 +21,82 @@ $
 ## Usage
 ________
 ```
-$ python MacUninstaller.py -a <APPLICATION NAME> -m <MODE>
+# python MacUninstaller.py -a <APPLICATION NAME> -m <MODE>
+```
+Similarly...
+```
+$ sudo python MacUninstaller.py -a APPLICATION NAME> -m <MODE>
 ```
 Flags:
 |short|long|desctiption
 |---|---|---|
 | `-h` | `--help` | Show this help message|
-| `-a` | `--application` | Name of application (as it appears in "/Applications/")
+| `-a` | `--application` | Name of application (as it appears in "/Applications/", without the ".app:")
 | `-m` | `--mode` | Intensity of removal (1-3)
 
 <br>
 
 ## Privilage Escalation
 _______________________ 
-Because some of the directories that will be modified/removed are protected, user password may be required at various stages in program execution
+### **Using `sudo`**
+Some of the files that will potentially be removed are in protected directories, user password will be required at various stages throughout the process
+
+To circumvent this, privilage escalation is recommended
 
 **Most Macintoshes will have root user disabled and it is advised to leave it alone**
 
-However, if root user is enabled, and password is available, enter in the terminal prior to running MacUninstaller:
-```
-$ sudo su
-```
-It may or may not prompt for a password, so respond accordingly
+It is recommended to simply stay in the user account and proceed command with `sudo` and enter the users password
 
-Additionally, instructions to enable the root user can be found at https://support.apple.com/en-us/HT204012
+If prompted with the following message, proceed with accepting the risk and/or running the program again
+```
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+ 
+     #1) Respect the privacy of others.
+     #2) Think before you type.
+     #3) With great power comes great responsibility.
+```
 
-Check the user on the terminal prompt. it may have, for example, changed from 
+<br><br>
+### **Enabling Root User**
+If using the root account is required, follow these steps to enable and use it.
 
-this
+- Go to `System Preferences` > `Users & Groups`
+- Click the lock button in the lower left and enter the user's password
+- Click on `Login Options`
+- Click on `Join...` next to "Network Account Server"
+- Click on `Open Directory Utility...`
+- Click on the lock in the lower left of the "Directory Utility" window and enter user's password
+- From the "Directory Utility" menu at the top of the screen
+  - Go to `Edit` > `Enable Root User` and enter the new root password - **Remember This!!** (Toggle On) --The socially accepted default password for root accounts is "toor" ("root" backwards)
+  - Or Choose `Edit` > `Disable Root User` (Toggle Off)
+
+Again, it is advised to disable the root user when done
+
+Source: [Apple](https://support.apple.com/en-us/HT204012)
+
+
+
+To escalate to the root user, type
 ```
-username@MacBookPro $
+$ su
 ```
-to this
+Then enter the password you created for the root account
+
+You should then be prompted with something like 
 ```
-root@MacBookPro #
+root@Mac~ #
 ```
-Once you are in the root shell, run the program to avoid various password prompts
+Run the program as specified above
+
+<br>
+
 
 > Notes:
 > - Everything that is removed is only put into Trash Can, not completely removed, in case something goes wrong and needs to be put back
+> - View CHANGELOG to see known issues and additional information
 
-- Known issues
-  - If another file/directory with the same name as something being deleted is already in the trash can, it will not be deleted
-  - If the applications stores its data under different/abbreviated name, it will not be found
-  - Mode 3 needs to be refined to exclude system directories and files
+<br>
+
+> - **Please report all bugs and issues to roca.dvlpr@gmail.com or on the GitHub project**
+>   - Please keep in mind this was a side project created by myself so issues may or may not be resolved quickly
