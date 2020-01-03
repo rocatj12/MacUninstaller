@@ -47,7 +47,7 @@ def delete(item): # Item is an absolute pathname
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-a', '--application', help='Application Name [How it appears in "/Applications/", without the ".app"]', metavar='')
-parser.add_argument('-m', '--mode', help='Intensity of Scan [ 1:Light, (2):Standard, 3:Intense]', metavar='')
+parser.add_argument('-m', '--mode', help='Intensity of Scan [ 1:Light, (2):Standard, 3:Intense] (Default = 2)', metavar='')
 args = parser.parse_args()
 APP_TO_REMOVE = args.application
 mode = args.mode
