@@ -24,7 +24,6 @@ Table of Contents
 """
 
 import os
-import subprocess
 import time
 import argparse
 import sys
@@ -33,7 +32,7 @@ import shutil
 import platform
 import getpass
 from datetime import datetime
-from send2trash import send2trash # Due to Python not wanting to behave when working with the trash, using this library to help with it. Docs: https://pypi.org/project/Send2Trash/
+# from send2trash import send2trash # Due to Python not wanting to behave when working with the trash, using this library to help with it. Docs: https://pypi.org/project/Send2Trash/
 
 ##############################################################################
                             # 1. Privilage Check #
@@ -133,7 +132,7 @@ def exit_program():
         exit()
 
 def check_exit(): # Check if the program should keep running
-    if MODE >= current_mode: # Specified mode is greater than the current mode
+    if MODE > current_mode: # Specified mode is greater than the current mode
         print('**Continuing to mode ' + str(current_mode+1) + ' to find leftovers**') # Continue
     else: # Specified mode is not greater than the current mode
         print('**Mode ' + MODE + 'removal complete**') # Exiting
@@ -148,10 +147,10 @@ def get_user():
 def check_user(USER):
     if USER in os.listdir('/Users/') and USER != get_user(): # Specified user exists and is not the logged in user
         check_user_input = raw_input('The specified user account belongs to someone else, are you sure you would like to proceed? [Y/n]: ')
-        if check_user_input.rstrip() == 'Y' or 'y' or '':
+        if check_user_input.strip() == 'Y' or 'y' or '':
             other_user = USER
             external_user_bool = True
-        elif check_user_input.rstrip() == 'n' or 'N':
+        elif check_user_input.strip() == 'n' or 'N':
             print('Exiting...')
             exit()
         else:
@@ -420,3 +419,9 @@ current_mode = 3
 
 # maybe more cleanup here
 exit_program()
+
+
+### TO DO
+
+# Check if 'Y' / 'n' input is compared right
+# See about the skeleton MacOS - what is included and what isn't 

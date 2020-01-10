@@ -66,3 +66,24 @@
   - **Resolution** Altered the way that the program deletes files and directories due to Python not working with the `~/.Trash` directory
   - **Resolution** Other minor changes
 - Mode flag and value not being read and compared properly by program causing in an exit() call
+
+
+# Version 0.0.8
+### **Functionality**
+
+- Mode 1, 2, 3 with various levels of intensity for removal
+  - **Mode 1**
+    - Searches through `/Applications/` for any items matching the item specified
+  - **Mode 2**
+    - Additionally searches through `~/Library/Application Support/` and `/Library/Application Support` for any items related to that specified
+    - Searches through `~/Library/LaunchAgents` and `/Library/LaunchAgents`
+    - Searches through `~/Library/Application Scripts/`
+  - **Mode 3**
+    - *tbd*
+
+### **Other Changes**
+
+
+### **Resolved Issues**
+- Program fails on execution due to missing build dependency
+  - **Resolution** Leaving out the Send2Trash dependency and using calls from the `os` module instead
