@@ -2,7 +2,7 @@
 Program: MacUninstaller
 Description: Lightweight uninstaller for MacOS and the files they leave behind
 Author: Tyler Roca
-Version: 0.0.7
+Version: 0.0.8
 
 Table of Contents
     1. Privilage Check
@@ -58,7 +58,7 @@ print('\t#                                                               #')
 print('\t#                       MacUninstaller                          #')
 print('\t#                       --------------                          #')
 print('\t#                     Author: Tyler Roca                        #')
-print('\t#                       Version 0.0.7                           #')
+print('\t#                       Version 0.0.8                           #')
 print('\t#                                                               #')
 print('\t#           *****************************************           #')
 print('\t#     Run "sudo python MacUninstaller.py -h" for usage/help     #')
@@ -421,7 +421,3 @@ current_mode = 3
 exit_program()
 
 
-### TO DO
-
-# Check if 'Y' / 'n' input is compared right
-# See about the skeleton MacOS - what is included and what isn't 
