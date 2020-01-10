@@ -3,6 +3,15 @@ ___
 #### Completely remove applications and the files they leave behind
 ##### Built on Python 2.7 to take advantage of the built in Python language in MacOS
 
+
+**Important** <br>
+
+> DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+
+Python 2.7 is no longer supported but is still the default Python version included with MacOS <br>
+This was last verified with MacOS Catalina 10.15.2 <br>
+I will try to keep up to date if this changes with new updates to MacOS and update this code to run with Python 3
+
 <br>
 
 ## Starting the Terminal
@@ -21,18 +30,15 @@ user@Mac~ $
 ## Usage
 ________
 ```
-# python MacUninstaller.py -a <APPLICATION NAME> -m <MODE>
-```
-Similarly...
-```
 $ sudo python MacUninstaller.py -a APPLICATION NAME> -m <MODE>
 ```
+
 **Flags:**
-|short|long|desctiption
+| short | long | desctiption |
 |---|---|---|
-| `-h` | `--help` | Show this help message|
-| `-a` | `--application` | Name of application (as it appears in "/Applications/", without the ".app:")|
-| `-m` | `--mode` | Intensity of Scan [ 1:Light, (2):Standard, 3:Intense]|
+| `-h` | `--help` | Show this help message |
+| `-a` | `--application` | Name of application (as it appears in "/Applications/", without the ".app:") *-Required* |
+| `-m` | `--mode` | Intensity of Scan [ 1: Light, (2): Standard, 3: Intense] |
 
 <br>
 
@@ -41,7 +47,7 @@ _______________________
 ### **Using `sudo`**
 Some of the files that will potentially be removed are in protected directories, user password will be required at various stages throughout the process
 
-To circumvent this, privilage escalation is recommended
+To circumvent this, privilage escalation is required
 
 **Most Macintoshes will have root user disabled and it is advised to leave it alone**
 
@@ -58,6 +64,7 @@ Administrator. It usually boils down to these three things:
 ```
 
 <br><br>
+
 ### **Enabling Root User**
 If using the root account is required, follow these steps to enable and use it.
 
@@ -93,7 +100,9 @@ Run the program as specified above
 
 
 > Notes:
-> - Everything that is removed is only put into Trash Can, not completely removed, in case something goes wrong and needs to be put back
+> - Everything that is removed is completely removed, there is no recovering from the trash can. *Later versions may work around this*
+> - Errors are not thrown to the error log if a file or directory to be deleted does not exist but is noted during output of program
+> - This program was intended for a single user system. If there is more than 1 user on the system, it is recommended to run the program logged into each account due to the leftover files being stored in a user's home directory. *Later versions may work around this*
 > - View [CHANGELOG.md](CHANGELOG.md) to see known issues and additional information
 
 <br>

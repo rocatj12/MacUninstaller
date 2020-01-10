@@ -2,16 +2,14 @@
 
 <br>
 
-# Version 1.0.0
+# Version 0.0.5
 ### **Functionality**
 
-- Mode 1, 2, and 3 with various levels of intensity for removal
+- Mode 1, 2 with various levels of intensity for removal
   - **Mode 1**
     - Searches through `/Applications/` for any items matching the item specified
   - **Mode 2**
     - Additionally searches through `~/Library/Application Support/` and `/Library/Application Support` for any items related to that specified
-  - **Mode 3**
-    - Very throughough scan of entire system searching recursively starting at the root directory `/`
 
 ### **Known Issues**
 - (b1) If a file or directory in `~/.Trash/` matches the name of an item being deleted, it will not delete
@@ -20,14 +18,14 @@
 - (b4) Mode 3 is inefficient and dangerous, needs to be refined to avoid removing system files
 
 
-# Version 1.0.1
+# Version 0.0.6
 ### **Functionality**
 
-- Mode 1, 2, and 3 with various levels of intensity for removal
+- Mode 1, 2, 3 with various levels of intensity for removal
   - **Mode 1**
-    - Searches through `/Applications/` for any items matching the item specified.
+    - Searches through `/Applications/` for any items matching the item specified
   - **Mode 2**
-    - Additionally searches through `~/Library/Application Support/` and `/Library/Application Support` for any items related to that specified.
+    - Additionally searches through `~/Library/Application Support/` and `/Library/Application Support` for any items related to that specified
     - Searches through `~/Library/LaunchAgents` and `/Library/LaunchAgents`
   - **Mode 3**
     - *tbd*
@@ -40,4 +38,31 @@
 ### **Resolved Issues**
 - (b1) If a file or directory in `~/.Trash` matches the name of an item being deleted, it will not delete
   - **Resolution** Check if the current file being deleted already exists in `~/.Trash`, remove that first, then continue deleting the one specified
-  - 
+
+
+# Version 0.0.7
+### **Functionality**
+
+- Mode 1, 2, 3 with various levels of intensity for removal
+  - **Mode 1**
+    - Searches through `/Applications/` for any items matching the item specified
+  - **Mode 2**
+    - Additionally searches through `~/Library/Application Support/` and `/Library/Application Support` for any items related to that specified
+    - Searches through `~/Library/LaunchAgents` and `/Library/LaunchAgents`
+  - **Mode 3**
+    - *tbd*
+
+### **Other Changes**
+- Modified version numbers to accurately represent progress
+- Added new option '--user' to specify a user account to search and scan through
+- Changes to README.md
+- Modifying the delete() function to work better
+- Error logging
+- Altering how program reads input and compares to items found in OS for removal to work better
+
+### **Resolved Issues**
+- Program does not run successfully in wide variety of uses
+  - **Resolution** Corrected the improper comparison between application specified and items in OS
+  - **Resolution** Altered the way that the program deletes files and directories due to Python not working with the `~/.Trash` directory
+  - **Resolution** Other minor changes
+- Mode flag and value not being read and compared properly by program causing in an exit() call
